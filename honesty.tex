@@ -1,0 +1,227 @@
+%% File history
+%% 7/16/13 Michael Bender created document
+%% 7/17/13 MB incorporated suggestions for improvement from Joe Mitchell
+%% 2/2/14 MB updates for CSE 350 
+%% 8/25/14 MB updates for CSE 150
+%% 1/26/15 MB edits for CSE 215 and incorporates suggestions from Steve Skiena
+%% 1/23/16 MB edits for CSE 350 and takes some of Don Porter's edits.
+%% 8/28/16 MB edits for CSE 150 
+%% hopefully lots of people will update and use this assignment :-)
+
+
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+
+\usepackage{enumitem}
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-0.5in}
+\setlength{\textwidth}{5.5in}
+\setlength{\oddsidemargin}{0.5in}
+\setlength{\textheight}{9.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+
+\begin{flushleft}
+   $\copyright$  2016~~Michael A. Bender
+\end{flushleft}
+\centerline{\bf CSE 150 -- 
+Honors Foundations of Computer Science  Fall 2016}
+\medskip
+\centerline{Academic Honesty Review}
+\bigskip
+\bigskip
+
+The point of this assignment is to examine issues of academic
+integrity and academic dishonesty.
+
+You should hand in your problem set \emph{online} using
+blackboard. \emph{No late problem sets accepted.}
+
+Latex is a wonderful and powerful scientific word processor. The first
+homework must be done in Latex. \newline For the Macintosh, install
+Mactex and use Texshop.  For linux, install texlive-full. Then you can
+use linux programs such as texworks, texmaker, or gummi.  For Windows,
+install Miktex and use WinEdt, texmaker, or some other editor. You can
+also use online latex programs such as Overleaf or Sharelatex.
+
+For drawing figures, I recommend using xfig, Ipe, inkscape, the Mac
+tool Omnigraffle. You can also use more general presentation tools
+such as Powerpoint, Keynote, or Libreoffice.
+
+This writeup includes input from Joe Mitchell, Don Porter, and Steve
+Skiena.  I welcome further suggestions from other students and
+professors.
+
+
+\section*{Academic Honesty}
+
+These are bullet points from the course procedures document:
+
+\begin{itemize}[noitemsep]
+
+\item I take academic honesty \emph{very} seriously.  Infractions have
+  serious consequences---generally an F in the course (or worse).
+
+\item It is \emph{your} responsibility to ensure that you understand
+  what constitutes academic dishonesty.
+
+\item Representing another person's work as your own is always wrong.
+  It is wrong in this course. It is wrong in your
+  profession.\footnote{Plagiarizing can end your career, regardless of
+    your skill level, your educational credentials, or how hard you
+    have worked up until this point. } It is wrong in life. It is
+  wrong. Period.
+
+
+\item Always cite! If you work with multiple people, cite with whom you worked.
+
+\item Copying (or approximately copying) a solution from the web or
+  someone else's solution and putting in your problem set is
+  plagiarism \emph{even if you cite your source}.
+
+\item Sharing any part of your write-up (latex, PDF, postscript,
+  figures, or hard copy) is academic dishonesty and invites
+  plagiarism.  Your own write-up is private information and should not
+  be shared.
+
+\item You may be able to find solutions to some of the homework
+  problems on the web or from more senior students. It is academic
+  dishonesty to search for and use such solutions in preparing your
+  own write-up for the assignment, and it is plagiarism to copy such
+  solutions and to submit as your own (even if you cite). 
+
+\item You can work together to solve problems, but you must write up
+  your own solutions, writing only those ideas and answers that you
+  personally fully understand, and stating in your write-up with whom
+  you worked to obtain the solution.
+
+\item If you are in doubt about whether or not you are permitted to
+  use particular source materials, you should obtain written
+  permission from the professor, in advance of your submission. Such
+  permission is best requested and obtained by email.
+
+\item {\em It is academically dishonest to hand in a solution that you
+    don't understand.}
+
+
+\end{itemize}
+ 
+\bigskip\bigskip
+
+\newcounter{problemctr}
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Explain why we let students work together to solve problems, as long
+as the students cite their collaborators. Explain why working together
+is not academically dishonest in this course.
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Explain why it is important to your professional development to
+struggle with a problem that you cannot solve quickly. In other words,
+the instructor deliberately assigns homework he knows you will likely
+have to think about for days or weeks to solve. What do you expect to
+learn from this experience?
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Explain why, although it is ok to work with other students, it is
+plagiarism to share and/or copy other write-ups.  Give an example of
+collaboration that is academically honest. Give another example of
+collaboration that is academically dishonest.
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Explain why it is academically dishonest to share your solution set
+with another student.  Explain how you could get burned from just
+sharing your writeup even if you do not copy yourself.
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp Explain why copying (or
+approximately copying) solutions from the web (or another source) is
+plagiarism, even if you cite your source.\footnote{In this course I
+  ask that you \emph{not} to scour the web for solutions to the
+  homework problems. If there are class topics that you don't
+  understand from reading the course materials come talk to me. But
+  even I did let you search the web to find solutions, this would
+  \emph{still} be plagiarism. Why? }
+ 
+\addtocounter{problemctr}{1} \bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Explain why it is better for your grade to leave a question blank,
+rather than search for answers on the web.  (Hint: calculate
+approximately how much a homework problem is worth to your raw score
+versus an exam question. Feel free to include the risk-benefit
+analysis of getting caught.)
+
+
+% MAB: I'm commenting out this problem, because I'd rather students
+% not use the internet to help them solve problems at all.
+%
+%\addtocounter{problemctr}{1}
+%\bigskip
+%\noindent
+%$\underline{\rm Problem\ \theproblemctr}$\pp
+%Suppose that you are completely stuck about how to approach a problem. 
+%Give an example of using the internet to help that is academically honest. 
+%Give an example of using the internet that is academically dishonest. 
+%
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+Imagine that you are employed at a major software company, say Google,
+Facebook, or Microsoft, and commit code into a product that you copied
+from a website. Explain the potential risks to both you and the
+company if this action is discovered by the owners of the code.
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp
+%
+Please speculate on why we decided to make a problem set on academic
+honesty.
+
+\addtocounter{problemctr}{1}
+\bigskip
+\noindent
+$\underline{\rm Problem\ \theproblemctr}$\pp 
+%
+How much time did this writeup take you, including the time it took to
+learn latex.
+
+
+
+\end{document}
+

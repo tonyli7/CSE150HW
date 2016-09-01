@@ -1,0 +1,338 @@
+% Begin your document as any latex file
+\documentclass{article}
+% Use package cse150
+\usepackage{cse150}
+
+% The following are just for the sake of this document.  Ignore them
+% for the purposes of generating scribe notes.
+% --------------------------------------------------------------------
+\newcommand{\pc}[1]{{\tt\begin{description} \item [\TT] #1
+\end{description}}}
+
+\newcommand{\com}[1]{$\backslash$#1}
+\newcommand{\comone}[2]{$\backslash$#1\{#2\}}
+\newcommand{\comtwo}[3]{$\backslash$#1\{#2\}\{#3\}}
+\newcommand{\comthree}[4]{$\backslash$#1\{#2\}\{#3\}\{#4\}}
+\newcommand{\comfour}[5]{$\backslash$#1\{#2\}\{#3\}\{#4\}\{#5\}}
+\newcommand{\comfive}[6]{$\backslash$#1\{#2\}\{#3\}\{#4\}\{#5\}\{#6\}}
+
+\newcommand{\sh}[2]{\com{#1} & $#2$ \\}
+\newcommand{\shn}[2]{\com{#1} & #2 \\}
+
+\newenvironment{todolist}{\begin{description}}{\end{description}}
+\newcommand{\todoitem}[2]{\item {\em #1} \hfill \\ #2}
+% ---------------------------------------------------------------------
+
+% Begin the lecture with a line like the following:
+% This replaces the usual \begin{document} that a latex
+% file begins with.
+\begin{lecture}{0}{How to Do Scribe Notes}{Seth Gilbert}
+
+% Now summarize the lecture.  This should be like an abstract
+% for the lecture, broken down into a few bullet points.
+\begin{summary}
+  % The first item of each \sumitem is the title of the part of the
+  % lecture, and the second part is a description (i.e. abstract) of
+  % that part.
+  \sumitem{Using cse150.sty}{In this section, we
+  describe the basics of using the cse150.sty latex style file, focuing
+  on how to setup your documents.}
+  \sumitem{Macros in cse150.sty}{In this section, we describe how
+  to use the various macros in cse150.sty to write good scribe notes.}
+  \sumitem{Quality scribe notes}{We list the most common mistakes in
+  scribe notes, and provide tips on how to avoid them.}
+\end{summary}
+
+% Now organize your lecture into sections.
+\section{Using cse150.sty}
+\seclabel{general-instructions}
+
+The {\bf cse150.sty} file contains a set of macros to help you typeset
+your problem sets and scribe notes.  This file contains an example of
+how to use these macros to produce scribe notes.  Use the following
+steps to set up your document:
+\begin{enumerate}
+\item Begin your document as you would any latex document:
+  \pc{\comone{documentstyle}{article}}
+\item Use the cse150 package:
+  \pc{\comone{usepackage}{cse150}}
+\item Add any other preamble information.
+\item Begin the lecture specify the lecture you are scribing:
+  \pc{\comfour{begin}{lecture}{{\it Lecture Number}}{{\it Lecture
+  Name}}{{\it Scribe Name}}}
+  For example:
+  \pc{\comfour{begin}{lecture}{5}{Advanced Algorithms}{Joe
+  Programmer}}
+  If someone other than Michael Bender gave the lecture, use the
+  following:
+  \pc{\comfive{begin}{guestlecture}{5}{Advanced Algorithms}{Joe
+  Programmer}{Sam Professor}}
+\item Create a summary of the lecture:
+  \pc{\comone{begin}{summary}}
+  \pc{\TT \comtwo{sumitem}{Basic Terms}{We define some basic terms}}
+  \pc{\TT \comtwo{sumitem}{Lemmas}{We state a few lemmas}}
+  \pc{\TT \comtwo{sumitem}{Proofs}{We prove some lemmas}}
+  \pc{\comone{end}{summary}}
+\item Describe the lecture.
+\item End the document:
+  \pc{\comone{end}{lecture}}
+  \pc{\com{theend}}
+  Don't forget the last line!
+\end{enumerate}
+
+\section{Macros in cse150.sty}
+
+In this section we discuss some of the common macros available in
+cse150.sty.  First, in \secref{thm-proof}, we discuss various theorem
+and proof environments.  Then, in \secref{label-ref}, we describe how
+to use the label and reference commands.  Finally, in
+\secref{commands}, we present a table of useful macros for common
+symbols.  Please see the cse150.sty file itself for a number of macros
+not included here.  There are many useful macros that are no
+documented here, but will make writing good latex documents much
+easier.
+
+\subsection{Theorem/Proof Environments}
+\seclabel{thm-proof}
+
+The cse150.sty file defies many of the usual theorem environments:
+theorem, corollary, lemma, observation, proposition, definition,
+claim, fact, assumption.  So, for example, one present a theorem as
+follows: 
+\pc{\comone{begin}{theorem}} 
+\pc{\TT Statement of the theorem goes here.}  
+\pc{\comone{end}{theorem}} 
+Environments for proofs are similarly provided:
+\pc{\comone{begin}{proof}}
+\pc{\TT This is why my theorem is true.}
+\pc{\comone{end}{proof}}
+Together, these two will lead to something that looks like:
+\begin{theorem}
+  Statement of the theorem goes here.
+\end{theorem}
+\begin{proof}
+  This is why my theorem is true.
+\end{proof}
+
+Similarly, environments for the following are provided:
+proof-sketch, proof-of-lemma, proof-idea, proof-attempt, proofof,
+remark.
+
+\subsection{Labels and References}
+\seclabel{label-ref}
+
+In this section, we go over how to use various label and reference
+commands.  We want to be produce a document containing all the scribe
+notes for the semester at the end of the term.  To this end, we want
+all references to be relative (and not absolute), to be correct (and
+refer to a label of the correct type), and to be unique (so as not to
+create difficulties in combining all the documents together.
+
+To this end, the cse150.sty file contains a set of commands for labels
+and references.  In order to label a section, using the following
+command:
+\pc{\comone{seclabel}{mysection}}
+This produces a unique label that contains the lecture number, and
+also indicates that it is a label of a section.  In order to reference
+this label, use the following command:
+\pc{\comone{secref}{mysection}}
+This will produce the following text:
+\pc{\secref{label-ref}}
+(if \emph{mysection} is actually that section).  This is slightly
+different than the usual \com{label} and \com{ref} commands, but
+essentially the same.  Label and reference commands exist for the
+following types: \\
+\hfill \\
+\begin{tabular}{lll}
+Label Command & Reference Command & Example \\
+\hline
+\com{seclabel} & \com{secref} & Section 1\\
+& \com{secreftwo} & Sections 1 and 2\\
+& \com{secrefthree} & Sections 1, 2, and 3\\
+& \com{secreffour} & Sections 1, 2, 3, and 4\\
+\com{applabel} & \com{appref} & Appendix 1\\
+\com{figlabel} & \com{figref} & Figure 1 \\
+& \com{figreftwo} & Figures 1 and 2 \\
+& \com{figrefthree} & Figures 1, 2, and 3 \\
+\com{tablabel} & \com{tabref} & Table 1 \\
+\com{stlabel} & \com{stref} & Step 1 \\
+\com{thmlabel} & \com{thmref} & Theorem 1 \\
+\com{lemlabel} & \com{lemref} & Lemma 1 \\
+& \com{lemreftwo} & Lemmas 1 and 2 \\
+& \com{lemfrefthree} & Lemmas 1, 2, and 3 \\
+\com{corlabel} & \com{corref} & Corollary 1 \\
+\com{equlabel} & \com{equref} & Equation 1 \\
+& \com{equreftwo} & Equations 1 and 2 \\
+\com{inequlabel} & \com{inequref} & Inequality 1 \\
+& \com{inequreftwo} & Inequalities 1 and 2 \\
+\com{invlabel} & \com{invref} & Invariant 1 \\
+\com{deflabel} & \com{defref} & Definition 1 \\
+\com{proplabel} & \com{propref} & Proposition 1 \\
+\com{caselabel} & \com{caseref} & Case 1 \\
+& \com{casereftwo} & Cases 1 and 2 \\
+\com{lilabel} & \com{liref} & Line 1 \\
+\end{tabular} \\
+\hfill \\
+In special cases where no appropriate label and reference command
+exist, you can use:
+\pc{\comone{genlabel}{mylabel}}
+\pc{\comone{genref}{mylabel}}
+\noindent to get a generic label and reference.  Please avoid using these,
+however, when appropriate label and reference commands exist.
+
+\subsection{Math and Other Symbols}
+\seclabel{commands}
+
+A number of useful commands are defined.  See the following table: \\
+\hfill \\
+\begin{tabular}{ll}
+Command & Result \\
+\hline
+\sh{ihat}{\ihat}
+\sh{jhat}{\jhat}
+\sh{OP}{\OP}
+\sh{OPprime}{\OPprime}
+\sh{abs\{var\}}{\abs{var}}
+\sh{bigO}{\bigO}
+\sh{set\{a,b,c\}}{\set{a,b,c}}
+\sh{half}{\half}
+\sh{Pr\{x\}}{\Pr{x}}
+\sh{Exp\{x\}}{\Exp{x}}
+\sh{implies}{\implies}
+\sh{sizeof\{thing\}}{\sizeof{thing}}
+\sh{setof\{stuff\}}{\setof{stuff}}
+\sh{reals}{\reals}
+\sh{integers}{\integers}
+\sh{naturals}{\naturals}
+\sh{rationals}{\rationals}
+\sh{complex}{\complex}
+\sh{norm\{x\}}{\norm{x}}
+\sh{card\{x\}}{\card{x}}
+\sh{floor\{x\}}{\floor{x}}
+\sh{ceil\{x\}}{\ceil{x}}
+\sh{ang\{x\}}{\ang{x}}
+\sh{sbrace\{x\}}{\sbrace{x}}
+\sh{cbrace\{x\}}{\cbrace{x}}
+\sh{paren\{x\}}{\paren{x}}
+\sh{Var}{\Var}
+\sh{expect\{x\}}{\expect{x}}
+\sh{expectsq\{x\}}{\expectsq{x}}
+\sh{variance\{x\}}{\variance{x}}
+\sh{choose\{x\}\{y\}}{\choose{x}{y}}
+\sh{percent\{95\}}{\percent{95}}
+\sh{twodots}{\twodots}
+\sh{transpose}{\transpose}
+\sh{amortized\{x\}}{\amortized{x}}
+\sh{cases\{one case\}}{\cases{one case}}
+\sh{cif\{x\}}{\cif{x}}
+\sh{cwhen\{x\}}{\cwhen{x}}
+\sh{cotherw}{\cotherw}
+\end{tabular}
+
+\section{Writing Guidelines for Scribe Notes \\ and Other Technical
+  Writing}
+
+\subsection{Extra Writing Help}
+
+Writing Guides -- Read the latex manual and \emph{The Elements of
+Style} by Strunk and White. For more help with technical writing see
+``Writing Resources on the World Wide Web'' at \\
+\pc{http://web.mit.edu/uaa/www/writing/links/}
+
+\subsection{Organization of Scribe Notes}
+
+\begin{todolist}
+\sumitem{Boldface for Organization}{Carefully choose the titles of sections,
+subsections, subsubsections, and paragraphs.  The reader should learn
+all proof ideas and lecture topics from reading the boldface only and
+ignoring the main text.}
+
+\todoitem{Location of Topic Sentences}{In technical writing the topic sentence
+of each paragraph should be located at the beginning of the paragraph.
+For scribe notes there are no exceptions.  Many writers want to put
+the topic sentence in the middle or the end of the paragraph, and the
+writing quality suffers.}
+
+\todoitem{Topic Paragraphs}{A numbered section (e.g., section, subsection)
+should begin with a topic paragraph, which explains the content of the
+section. A topic paragraph is not necessary in an unnumbered section.}
+
+\todoitem{Figures and Long Figure Captions}{Please use as many figures as you
+can. Do not be afraid to write long figure captions.  The reader
+should understand much of the lecture just from viewing the figures
+and reading the captions.  A figure caption begins with a sentence
+fragment followed by a period.  Only full sentences follow.}
+
+\todoitem{Write Clear Latex}{Latex is source code and consequently should be
+clear and readable. Avoid personalized environments.}
+
+\todoitem{Text in Figure Captions Versus Body of Notes}{In the figure
+caption explain what the figure represents. In the body of this scribe
+notes say what the figure means.  For example, in a lecture on task
+scheduling, we may have a figure showing a directed a cyclic graph.
+The figure caption reads as follows: ``Example of a precedence graph.
+Circles represent tasks and edges represent dependencies.''}
+% I didn't finish writing this yet...
+
+\end{todolist}
+
+\subsection{Sentence Structure}
+
+\begin{todolist}
+\todoitem{Omission of Needless Words}{Write clearly with short
+sentences and simple constructions.  If the word is not absolutely
+necessary, then remove it.}
+
+\todoitem{Use of Present Tense}{Simplify verb tenses and use the
+present tense as much as possible.  Avoid future and conditional
+tenses and the subjunctive mood when possible. For example, do not
+write ``we will show'' when ``we show'' suffices; do not write ``we
+can establish'' when ``we establish'' suffices.}
+
+\todoitem{Active Verbs}{English is a language in which verbs contain
+most of the force of the sentence. Therefore use the active voice.  Do
+not say: ``It is established in this lecture...''; say: ``This lecture
+establishes....''}
+
+\todoitem{Strong Subjects of Sentences}{In English the subject also contains
+force.  Therefore as above, avoid saying ``It is....''}
+
+\todoitem{Precision}{The words ``this'' and ``that'' need a noun after
+them.  For example, do not say: ``This is why we use... period'' Say:
+``This impossibility result is why we use....''}
+
+\end{todolist}
+
+\subsection{Use of Mathematics}
+
+\begin{todolist}
+
+\todoitem{Punctuation in Centered Equations}{Centered equations are
+grammatically part of the surrounding text.  Consequently, they still
+need punctuation.  A period or comma at the end of a centered equation
+is preceded by a small amount of space (`\,' in latex) before it.}
+
+\todoitem{Use of Eqnarray}{Use eqnarray frequently.  In centered equations you
+should never have more than one `$=$' (or `$<$' `$>$') per line.}
+
+\todoitem{Spelling out Numbers}{An English rule is that numbers less
+then or equal to twelve are spelled out, whereas larger numbers are
+written with Arabic numerals.  This guideline is modified for
+technical writing: If you do arithmetic on a number, represent it with
+numerals.  Otherwise follow the English rule.}
+
+\todoitem{Representation of Fractions}{In running text you should
+generally use $1/2$ and avoid $\frac{1}{2}$ (and similarly for other
+fractions).  In centered mathematics you should generally use
+$\frac{1}{2}$.}
+
+\end{todolist}
+
+\subsection{When to Ignore the Rules}
+
+Ignore the above rules until your ideas are written. Then as you edit
+your text, apply all rules.  Do not try to write perfect text from the
+outset.
+
+\end{lecture}
+\theend

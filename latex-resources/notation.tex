@@ -1,0 +1,248 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\title{CSE 150: Notation Examples}
+\author{Leif Walsh}
+
+\begin{document}
+\maketitle
+
+For most of the following, you will need to include \verb amsmath , \verb amsfonts , \verb amsthm , and sometimes \verb amssymb  in your source, by putting the \verb@\usepackage{amsmath}@ and the like in the preamble.
+
+\section{Sets}
+\subsection{Normal Sets}
+To denote sets, just go into math mode and use a capital letter.  For literal sets, be sure to escape (\verb \ ) the braces.
+
+\subsubsection*{Example}
+
+\verb $A$  = ``$A$'' \\
+\verb $\emptyset$ = ``$\emptyset$'' \\
+\verb $\{1,2,apple\}$ = ``$\{1,2,apple\}$''
+
+\subsection{Sets of Numbers}
+For ``bold'' sets (naturals, reals, complex numbers), enter math mode and use \verb \mathbb .
+
+Note, \verb \mathbb  requires \verb amsfonts .
+
+\subsubsection*{Example}
+\verb $\mathbb{R}$  = \verb@$\mathbb R$@ = ``$\mathbb R$''
+
+\subsection{Set Operations}
+All of these must be in math mode.
+
+Union: \verb@\cup@, \verb@\bigcup@
+
+Intersection: \verb@\cap@, \verb@\bigcap@
+
+Difference: \verb@\setminus@, \verb@-@
+
+Symmetric Difference: \verb@\triangle@  (I think it's usually a bit smaller than what this produces; if anyone comes across a better command, let me know)
+
+Complement: \verb@\overline@
+
+\subsubsection*{Example}
+\verb@$( (A \cup B) \cap (B \setminus \varnothing) ) \triangle \overline{C}$@ = ``$( (A \cup B) \cap (B \setminus \emptyset) ) \triangle \overline{C}$''
+
+\subsection{Summation-ish notation}
+Make sure you are in \verb displaymath  mode, not \verb inline  math mode, and use \verb \bigcup  or \verb \bigcap .  Usage is as follows:
+
+\verb@\bigcup_{<lower condition>}^{<upper condition>}@
+
+\subsubsection*{Example}
+
+\verb@\bigcup_{i=0}^{10} \mathbb{Z}_i@
+\begin{displaymath}
+\bigcup_{i=0}^{10} \mathbb{Z}_i
+\end{displaymath}
+
+\verb@\bigcap_{q \in \mathbb Q} \{qi | i \in \mathbb Z\}@
+\begin{displaymath}
+\bigcap_{q \in \mathbb Q} \{qi | i \in \mathbb Z\}
+\end{displaymath}
+
+\section{Boolean Logic}
+\subsection{Operators}
+See the examples.
+
+\subsubsection*{Example}
+\verb@$P \lor Q$@ = ``$P \lor Q$'' \\
+\verb@$P \land Q$@ = ``$P \land Q$'' \\
+\verb@$\lnot P$@ = ``$\lnot P$'' \\
+\verb@$P \Rightarrow Q$@ = ``$P \Rightarrow Q$'' \\
+\verb@$P \Leftrightarrow Q$@ = ``$P \Leftrightarrow Q$'' 
+
+\subsection{Expressions}
+Convention dictates that boolean expressions may be grouped with square brackets or parens, depending on the author's mood or desire for readability.  Note that in \LaTeX, these do not need to be escaped like curly brackets do.
+
+\subsection{Truth Tables}
+Some practice with the \verb \tabular  environment is necessary, but see the following for a brief introduction.
+
+\subsubsection*{Example}
+
+\begin{verbatim}
+\begin{tabular}[h]{c|c|c}
+$P$ & $Q$ & $P \Rightarrow Q$ \\
+\hline
+F & F & T \\
+F & T & T \\
+T & F & F \\
+T & T & T
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}[h]{c|c|c}
+$P$ & $Q$ & $P \Rightarrow Q$ \\
+\hline
+F & F & T \\
+F & T & T \\
+T & F & F \\
+T & T & T
+\end{tabular}
+
+\section{Errata (for want of a better term)}
+\subsection{Overloading the ``equals'' Operator}
+In the most strict places, a ``colon-equals'' replaces the assignment sense of the equals sign, and a single equals represents only the comparison (it's an equivalence relation!).  Most of the time, a single equals sign can do both and you can infer the meaning from context, and sometimes (especially when programmers are writing), a single equals will only be assignment and a double equals will be comparison.  Note that in all cases, for assignment, the left operand is the variable taking the assignment and the right operand is the value which the left operand is being assigned.
+
+Additionally, in place of the colon-equals assignment operator, many people use a simple \verb \leftarrow  ($\leftarrow$, read ``takes the value of'' or something equivalenl).  This is probably more common in math circles than CS circles (particularly unpopular among C programmers, I hear), but I kind of like it, and it usually looks cleaner than equals or colon-equals (and making it look less like debuggable code tends to make it less scary to read).  I strongly suggest the use of this.
+
+\subsubsection*{Example}
+
+\verb@$a := b$@ = ``$a:=b$'' [Assignment]
+
+\verb@$(a == b) \Rightarrow Q$@ = ``$(a == b) \Rightarrow Q$'' [Comparison]
+
+\verb@$a = b \cdot 2$@ = ``$a = b \cdot 2$'' [You really can't tell, can you?]
+
+\verb@$P \leftarrow a = b$@ = ``$P \leftarrow a = b$'' [Assignment of a boolean value obtained by a comparison]
+
+\subsection{(Ordered) Lists / Arrays}
+A literal list is typically square bracket-delimited and comma-separated.  A fixed-size list (like a tuple or a vector) is typically paren-delimited instead.  If the list is named ($L$, say), the $i$th element would be referenced by $L[i]$ (more common with variable-length lists) or $L_i$ (more common with fixed-length lists) (\verb $L[i]$  and \verb $L_i$ , respectively).  A range of elements could be denoted by a Python-style 'slice' ($L[i:j]$) or an ellipsis ($L[i..j]$ or $L[i\ldots j]$), but be sure to remind your reader which, if either, ends are inclusive (also, ranges are typically not done with subscript notation).  Typically the first index is inclusive and the second is exclusive, but it's always nice to make sure they are on the same page with you.
+
+\subsubsection*{Example}
+Variable-length list: \verb@$[1, 2, 3, 4, 5]$@ = ``$[1, 2, 3, 4, 5]$''
+
+Fixed-length list (k-tuple): \verb@$(a_1, a_2, \ldots, a_k)$@ = ``$(a_1, a_2, \ldots, a_k)$''
+
+Setting the $n$th element of the list $A$: \verb@$A[n] := 3$@ = ``$A[n] := 3$''
+
+Often, we may never name a tuple, and we will just always refer to its contents:
+``Let $(a_1, a_2, \ldots, a_n)$ be the $n$-tuple where $a_0 := 0$, $a_1 := 1$, and $\forall i \in \mathbb N, a_{i+2} = a_{i} + a_{i+1}$'' (see the source for that one)
+
+\subsection{Defining your own commands}
+\subsubsection{Commands}
+One of the cool things about \LaTeX is that you can program in it!  You can define new functions with the \verb \newcommand  command, and new environments (like \verb displaymath  and \verb tabular ) with \verb \newenvironment .  Look online to see how those work, but one of the simple things you can do is create commands that act like \verb \log  and \verb \sin  (in that they aren't italic and add a space in math mode).
+
+\subsubsection*{Example}
+First, you would put the following in the preamble (or a file you include with \verb \usepackage ):
+
+\verb@\newcommand{\myfunc}{\mathop\mathrm{myfunc}}}@
+\newcommand{\myfunc}{\mathop{\mathrm{myfunc}}}
+
+Now, in your \verb .tex  file, you can use \verb \myfunc  like any other no-argument function:
+
+\verb@$O(n \myfunc n)$@ = ``$O(n \myfunc n)$''
+
+\subsubsection{Arguments}
+If you would like your command to have arguments, specify the number of arguments after the name of the command in square brackets, and then use ``\#1'', ``\#2'', and the like in your definition.
+
+\subsubsection*{Example}
+
+To include arguments, do something like this:
+
+\verb@\newcommand{\mysquare}[1]{#1^2}@
+\newcommand{\mysquare}[1]{#1^2}
+
+And then in the \verb .tex :
+
+\verb@$\mysquare{x}$@ = \verb@$\mysquare x$@ = ``$\mysquare x$''
+
+
+\subsubsection{Theorem environments}
+Just like \verb \newcommand  and \verb \newenvironment , you can create ``theorem'' style environments with, you guessed it, \verb \newtheorem .  A ``theorem'' environment is numbered, and you can, when you create a new theorem environment, specify which other theorem to number it inside of.  You can also specify which other theorem environments to interlace numbering with (so they use the same counter, effectively).  After you define a theorem, you use it by adding \verb \begin{name} , where ``name'' is the name you gave the environment.
+
+(Note: You get much better results, and have a few more options I didn't discuss, by using the \verb amsthm  package.)
+
+The \verb proof  environment (defined in \verb amsthm ) is a great way to prove your theorems, as you might expect.  This will give you a nice little italicized ``Proof:'' before your proof, and a well-placed \qedsymbol \;after.
+
+There are some more details about theorem and proof environments in the well-written page http://www.math.uiuc.edu/\raisebox{-.8ex}\~hildebr/tex/theorems.html .
+
+\subsubsection*{Example}
+(In a preamble or included package:)
+
+\verb@\newtheorem{mythmenv}{Theorem}[section]@
+\newtheorem{mythmenv}{Theorem}[section]
+
+\verb@\newtheorem{mylemenv}[mythmenv]{Lemma}@
+\newtheorem{mylemenv}[mythmenv]{Lemma}
+
+(Now, in the \verb .tex :)
+
+\begin{verbatim}
+\begin{mythmenv}$1 + 1 + 1 = 3$\end{mythmenv}
+
+\begin{proof}
+First, we need a tiny lemma:
+
+\begin{mylemenv}$1 + 1 = 2$\end{mylemenv}
+\begin{proof}
+\emph{Hand waving}
+\end{proof}
+
+And another:
+
+\begin{mylemenv}$1 + 2 = 3$\end{mylemenv}
+\begin{proof}
+\emph{More hand waving}
+\end{proof}
+
+Now, $1 + 1 + 1 = 1 + 2 = 3$
+\end{proof}
+\end{verbatim}
+
+\dots which gives us:
+
+\begin{mythmenv}$1 + 1 + 1 = 3$\end{mythmenv}
+
+\begin{proof}
+First, we need a tiny lemma:
+
+\begin{mylemenv}$1 + 1 = 2$\end{mylemenv}
+\begin{proof}
+\emph{Hand waving}
+\end{proof}
+
+And another:
+
+\begin{mylemenv}$1 + 2 = 3$\end{mylemenv}
+\begin{proof}
+\emph{More hand waving}
+\end{proof}
+
+Now, $1 + 1 + 1 = 1 + 2 = 3$
+\end{proof}
+
+\subsubsection{Dealing with math mode}
+Note that the above commands only work if you are already in math mode.  If you would like to have commands that act as though they are in math mode whether or not they are embedded in math mode text, use the \verb \ensuremath  command (in LaTeX2e), or look up the usage of \verb \ifmmode , which will allow you to set a command like
+
+\verb@\newcommand{\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}@
+\newcommand{\mathify}[1]{\ifmmode{#1}\else\mbox{$#1$}\fi}
+
+\subsubsection*{Example}
+\verb@\newcommand{\abse}[1]{\ensuremath{\left| #1 \right|}}@
+\newcommand{\abse}[1]{\ensuremath{\left| #1 \right|}}
+
+\verb@\newcommand{\abs}[1]{\mathify{\left| #1 \right|}}@
+\newcommand{\abs}[1]{\mathify{\left| #1 \right|}}
+
+\verb@Text \abse{x} more text@ = ``Text \abse{x} more text''
+
+\verb@Text $\abse{x}$ more text@ = ``Text $\abse{x}$ more text''
+
+\verb@Text \abs{x} more text@ = ``Text \abs{x} more text''
+
+\verb@Text $\abs{x}$ more text@ = ``Text $\abs{x}$ more text''
+
+\end{document}
