@@ -1,0 +1,166 @@
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+\usepackage{colortbl}
+\usepackage{enumitem}
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-1.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\textheight}{10.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+\noindent 
+Tony Li \\
+CSE150 \\
+HW01a \\\\
+%=========================================Problem 1=====================================================
+	\textbf{\underline{Problem 1:}}
+
+
+	Write P $\Rightarrow$ Q using $\vee$ and $\sim$. Show that your two representations are equivalent.
+	\\
+	\\
+	
+	\begin{minipage}{0.5\textwidth}
+		\begin{tabular}{||c c c c c||} 
+ 		\hline
+ 		P & Q & $\sim$P & P$\Rightarrow$Q & $\sim$P $\vee$ Q\\ [0.5ex] 
+ 		\hline\hline
+ 		T & T & F & T & T\\ 
+ 		\hline
+ 		T & F & F & F & F\\
+ 		\hline
+ 		F & T & T & T & T\\
+ 		\hline
+ 		F & F & T & T & T\\
+ 		\hline
+		\end{tabular}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	
+		\begin{tabular}{|c|}
+		\arrayrulecolor{red}\hline
+		$\sim$P $\vee$ Q\\[0.5ex]
+		\hline
+		\end{tabular}
+	\end{minipage}\\\\
+
+%=========================================Problem 2=====================================================
+	\noindent
+	\textbf{\underline{Problem 2:}} 
+
+
+	Prove that the propositional formulas 
+	\begin{center}
+		P $\vee$ Q $\vee$ R
+	\end{center}
+
+	and
+		
+	\begin{center}
+		(P $\wedge \sim$ Q) $\vee$ (Q $\wedge \sim$ R) $\vee$ (R $\wedge \sim$ P) $\vee$ (P $\wedge$ Q $\wedge$ R) 
+	\end{center}
+
+	are equivalent.
+	\\\\
+	\begin{tabular}{|c c c c c c !{\color{red}\vrule} c !{\color{red}\vrule} c c c c|} 
+	\hline
+	P & Q & R & $\sim$P & $\sim$Q & $\sim$R & P $\vee$ Q $\vee$ R & P $\wedge \sim$Q & Q $\wedge \sim$R & R $\wedge \sim$P & P $\wedge$ Q $\wedge$ R \\ [0.5ex] 
+ 		\hline\hline
+	T & T & T & F & F & F & T & F & F & F & T \\
+	T & T & F & F & F & T & T & F & T & F & F \\
+	T & F & T & F & T & F & T & T & F & F & F \\
+	T & F & F & F & T & T & T & T & F & F & F \\
+	F & T & T & T & F & F & T & F & F & T & F \\
+	F & T & F & T & F & T & T & F & T & F & F \\
+	F & F & T & T & T & F & T & F & F & T & F \\
+	F & F & F & T & T & T & F & F & F & F & F \\
+	\hline
+	\end{tabular} 
+
+	\noindent
+	\begin{tabular}{|c|}
+		\arrayrulecolor{red}\hline
+		\hline
+		(P $\wedge \sim$ Q) $\vee$ (Q $\wedge \sim$ R) $\vee$ (R $\wedge \sim$ P) $\vee$ (P $\wedge$ Q $\wedge$ R) \\[0.5ex]
+		\hline\hline
+		T \\
+		T \\
+		T \\
+		T \\
+		T \\
+		T \\
+		T \\
+		F \\
+		\hline
+		\end{tabular}\\\\\\\\
+
+
+%=========================================Problem 3=====================================================
+\noindent
+	\textbf{\underline{Problem 3:}} 
+
+
+	( a ) Write the biconditional ( $\Leftrightarrow$ ) using only implies ( $\Rightarrow$ ) and ( $\wedge$ ). Prove that the new version
+
+ 	is equivalent.
+
+	\begin{minipage}{0.5\textwidth}
+		\begin{tabular}{||c c c c c||} 
+ 		\hline
+ 		P & Q & P $\Rightarrow$ Q & Q$\Rightarrow$P & (P $\Rightarrow$ Q) $\wedge$ (Q$\Rightarrow$P)\\ [0.5ex] 
+ 		\hline\hline
+ 		T & T & T & T & T\\ 
+ 		\hline
+ 		T & F & F & T & F\\
+ 		\hline
+ 		F & T & T & F & F\\
+ 		\hline
+ 		F & F & T & T & T\\
+ 		\hline
+		\end{tabular}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+	
+		\begin{tabular}{|c|}
+		\arrayrulecolor{red}\hline
+		(P $\Rightarrow$ Q) $\wedge$ (Q$\Rightarrow$P)\\[0.5ex]
+		\hline
+		\end{tabular}
+	\end{minipage}\\\\
+
+	( b ) Write it using only $\vee$ and $\sim$. Show your derivation.
+	
+	\begin{enumerate}
+		\item P $\Leftrightarrow$ Q
+		\item (P $\Rightarrow$ Q) $\wedge$ (Q$\Rightarrow$P) \textit{[ by Problem 3a ]}
+		\item ($\sim$P $\vee$ Q ) $\wedge$ ( $\sim$Q $\vee$ P ) \textit{[ by Problem 1]}
+		\item $\sim$ ( $\sim$ ( $\sim$P $\vee$ Q ) ) $\vee$ $\sim$ ( $\sim$Q $\vee$ P ) ) \textit{[ by De Morgan's Laws ]}
+	\end{enumerate}
+
+	\begin{tabular}{|c|}
+		\arrayrulecolor{red}\hline
+		$\sim$ ( $\sim$ ( $\sim$P $\vee$ Q ) ) $\vee$ $\sim$ ( $\sim$Q $\vee$ P ) )\\[0.5ex]
+		\hline
+	\end{tabular}
+		
+
+
+
+
+ 	
+	
+
+	
+\end{document}
