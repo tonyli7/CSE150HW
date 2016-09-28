@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+\usepackage{colortbl}
+\usepackage{enumitem}
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-1.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\textheight}{10.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+\noindent 
+Tony Li \\
+CSE150 \\
+HW01b \\\\
+%=========================================Problem 1=====================================================
+	\textbf{\underline{Problem 4:}}
+
+
+	Boolean algebra operations can be expressed as arithmetic operations mod 2. Let 1 represent 
+
+	true, and 0 false.
+
+	( a ) Show that A $\wedge$ B = ( A $\bullet$ B mod 2 ).\\
+
+	\begin{minipage}{0.5\textwidth}
+		\begin{tabular}{||c c c||} 
+ 		\hline
+ 		A & B & A $\wedge$ B\\ [0.5ex] 
+ 		\hline\hline
+ 		T & T & T\\ 
+ 		\hline
+ 		T & F & F\\
+ 		\hline
+ 		F & T & F\\
+ 		\hline
+ 		F & F & F\\
+ 		\hline
+		\end{tabular}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{tabular}{||c c c||} 
+ 		\hline
+ 		A & B & A $\bullet$ B mod 2\\ [0.5ex] 
+ 		\hline\hline
+ 		1 & 1 & 1\\ 
+ 		\hline
+ 		1 & 0 & 0\\
+ 		\hline
+ 		0 & 1 & 0\\
+ 		\hline
+ 		0 & 0 & 0\\
+ 		\hline
+		\end{tabular}
+	\end{minipage}\\\\
+
+	( b ) What is $\sim$A?\\
+
+	\begin{tabular}{||c c c c||} 
+ 		\hline
+ 		A & $\sim$A & A+1 & A+1 mod 2\\ [0.5ex] 
+ 		\hline\hline
+ 		1 & 0 & 2 & 0\\ 
+ 		\hline
+ 		1 & 0 & 2 & 0\\
+ 		\hline
+ 		0 & 1 & 1 & 1\\
+ 		\hline
+ 		0 & 1 & 1 & 1\\
+ 		\hline
+		\end{tabular}\\\\
+
+	( c ) What is A $\vee$ B? (Use De Morgan's laws.)\\
+
+	\begin{enumerate}
+		\item A $\vee$ B
+		\item $\sim$ ( $\sim$A $\wedge$ $\sim$B) \textit{[by De Morgan's Laws]}
+		\item $\sim$( $\sim$A $\bullet\sim$B )$\bmod$2  \textit{[by Problem 4a]}
+		\item ( ( A + 1 ) $\bmod$2 $\bullet$ ( B + 1 )$\bmod$2 + 1 )$\bmod$2 \textit{[by Problem 4b]}
+	\end{enumerate}
+
+
+
+
+
+\end{document}
