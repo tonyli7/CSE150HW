@@ -1,0 +1,97 @@
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+\usepackage{colortbl}
+
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-1.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\textheight}{10.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+\noindent 
+Tony Li \\
+CSE150 \\
+HW02a \\\\
+
+%============================================Problem 1======================================================
+	\noindent\textbf{\underline{Problem 1}}\\
+	For each of the following statements about sets determine whether it is always true ( also provide 
+	an example), or only sometimes true ( also provide an example and counterexample). Please 
+	provide an explanation.
+
+	\begin{enumerate}
+		\item $A \in P(A)$ \\\\
+			Always true. \\\\
+				\underline{True Example:} $\emptyset \in P(\emptyset)  \Longleftrightarrow \emptyset \in \{\emptyset\} $ \\\\
+				
+		\item $A \subseteq P(A)$\\\\
+			Always true. \\\\
+				\underline{True Example:} $\emptyset \subseteq P(\emptyset)  \Longleftrightarrow \emptyset \subseteq \{\emptyset\} $ \\\\       
+
+		\item $(|A| \leq |B| \Rightarrow (A \subseteq B))$\\\\
+			Sometimes True. \\\\
+				\underline{True Example:} $|\{4, 5, 6\}| \leq |\{4, 5, 6, 7\}|$ and $\{4, 5, 6\} \subseteq \{4, 5, 6, 7\}$ is true.\\
+				\underline{False Example:} $|\{1, 2, 3\}| \leq |\{4, 5, 6, 7\}|$ and $\{1, 2, 3\} \subseteq \{4, 5, 6, 7\}$ is not true.\\
+		\item $( A \subseteq B ) \Rightarrow ( |A| \leq |B| )$	
+			Always true. \\\\
+				\underline{True Example:} $\{1, 2\} \subseteq \{1, 2, 3\}$ and $|\{1, 2\}| \leq |\{1, 2, 3\}|$ 
+	\end{enumerate}
+\ \\\\\\\\\\\\\\\\\\
+%============================================Problem 2======================================================
+	\noindent\textbf{\underline{Problem 2}}\\
+	Find the smallest two finite sets A and B for each of the four conditions.\\
+\textit{Note:} The smallest sets may not be unique.
+
+	\begin{enumerate}
+		\item $A \in B, A \subseteq B$, and $P(A) \subseteq B$\\
+
+			$A = \emptyset , B = \{ \emptyset \}$\\
+		\item $( \mathbb{N} \cap A ) \in A, B \subset A,$ and $P(B) \subseteq A.$\\
+
+			$A = \{ \emptyset, \{ \emptyset \} \} , B = \emptyset$\\
+		\item $A \subseteq (P (P(B)) - P(A)$.\\
+
+			$A = \emptyset, B = \emptyset$\\
+		\item $A \supseteq (P (P(B)) - P(A)$.\\
+
+			$A = \{ \emptyset \} , B = \emptyset$
+	
+	\end{enumerate}
+
+%============================================Problem 3======================================================
+	\noindent\textbf{\underline{Problem 3}}\\
+	Prove or disprove (by providing a counterexample) each of the following properties of binary relations:\\
+	Let S(A) be the symmetric closure of set A. Let T(A) be the transitive closure of set A. For every binary relation R, 
+
+	\begin{enumerate}
+		\item $T(S(R)) \subseteq S(T(R))$
+		\item $S(T(R)) \subseteq T(S(R))$
+	\end{enumerate}
+\end{document}
+
+
+
+
+
+
