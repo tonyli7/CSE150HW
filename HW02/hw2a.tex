@@ -43,11 +43,12 @@ HW02a \\\\
 	\begin{enumerate}
 		\item $A \in P(A)$ \\\\
 			Always true. \\\\
-				\underline{True Example:} $\emptyset \in P(\emptyset)  \Longleftrightarrow \emptyset \in \{\emptyset\} $ \\\\
+				\underline{True Example:} $\emptyset \in P(\emptyset)  \Longleftrightarrow \emptyset \in \{\emptyset\} $ \\
+				The power set is the set of all subsets, so A will always be an element in P(A).
 				
 		\item $A \subseteq P(A)$\\\\
-			Always true. \\\\
-				\underline{True Example:} $\emptyset \subseteq P(\emptyset)  \Longleftrightarrow \emptyset \subseteq \{\emptyset\} $ \\\\       
+			 Sometimes True. \\\\
+				\underline{False Example:} $\{1,2\}$ is not a subset of $\{\emptyset , \{1\} , \{2\} , \{1, 2\}\}$       
 
 		\item $(|A| \leq |B| \Rightarrow (A \subseteq B))$\\\\
 			Sometimes True. \\\\
@@ -55,25 +56,26 @@ HW02a \\\\
 				\underline{False Example:} $|\{1, 2, 3\}| \leq |\{4, 5, 6, 7\}|$ and $\{1, 2, 3\} \subseteq \{4, 5, 6, 7\}$ is not true.\\
 		\item $( A \subseteq B ) \Rightarrow ( |A| \leq |B| )$	
 			Always true. \\\\
-				\underline{True Example:} $\{1, 2\} \subseteq \{1, 2, 3\}$ and $|\{1, 2\}| \leq |\{1, 2, 3\}|$ 
+				\underline{True Example:} $\{1, 2\} \subseteq \{1, 2, 3\}$ and $|\{1, 2\}| \leq |\{1, 2, 3\}|$ \\
+				If A is a subset of B, then the number of elements in A is less than or equal to B. 
 	\end{enumerate}
-\ \\\\\\\\\\\\\\\\\\
+\ \\\\\\\\\\\\\\\\\\\\\\
 %============================================Problem 2======================================================
 	\noindent\textbf{\underline{Problem 2}}\\
 	Find the smallest two finite sets A and B for each of the four conditions.\\
 \textit{Note:} The smallest sets may not be unique.
 
 	\begin{enumerate}
-		\item $A \in B, A \subseteq B$, and $P(A) \subseteq B$\\
+		\item $A \in B, A \subseteq B$, and $P(A) \subseteq B$
 
 			$A = \emptyset , B = \{ \emptyset \}$\\
-		\item $( \mathbb{N} \cap A ) \in A, B \subset A,$ and $P(B) \subseteq A.$\\
+		\item $( \mathbb{N} \cap A ) \in A, B \subset A,$ and $P(B) \subseteq A.$
 
 			$A = \{ \emptyset, \{ \emptyset \} \} , B = \emptyset$\\
-		\item $A \subseteq (P (P(B)) - P(A)$.\\
+		\item $A \subseteq (P (P(B)) - P(A)$.
 
 			$A = \emptyset, B = \emptyset$\\
-		\item $A \supseteq (P (P(B)) - P(A)$.\\
+		\item $A \supseteq P (P(B)) - P(A)$.
 
 			$A = \{ \emptyset \} , B = \emptyset$
 	
@@ -86,18 +88,114 @@ HW02a \\\\
 
 	\begin{enumerate}
 		\item $T(S(R)) \subseteq S(T(R))$ \\
-		
+			\textbf{False.}
+
+			$R = \{(1 , 3)\}$ 
+
+			$S(R) = \{(3, 1)\}$ 
+
+			$T(R) = \{(1,3)\}$
+
+			$T(S(R)) = \{(1, 3) , (3, 1) , (1, 1) , (3, 3)\}$
+
+			$S(T(R)) = \{(1, 3) , (3, 1)\}$
 
 		\item $S(T(R)) \subseteq T(S(R))$ \\
-		\textbf{False.}
+			\textbf{True}
 
-		$R = \{(1 , 3) , (2 , 3) , (3 , 4)\}$ \\
+			$T(R) = \{ (x, y) , (y, z) \in R$ $|$ $(x, z) \in R \}$ \\
+			$S(T(R)) = \{ (x, y) , (y, z) (x, z) \in R$ $|$ $(y, x), (z, y), (z, x) \in R\}$ \\
+			\\
+			$S(R) = \{ (x, y) , (y, z) \in R$ $|$ $(y, x), (z, y) \in R \}$ \\
+			$T(S(R)) = \{ (x, y) , (y, z) (y, x), (z, y) \in R$ $|$ $(x, z), (z, x) \in R\}$ \\\\
 
-		$S(T(R)) = \{(1 , 3) , (3 , 4) , (2 , 3) , (1 , 4) , (2 , 4) , (3 , 1) , (4 , 3) , (3 , 2) , (4 , 1) , (4 , 2)\}$ \\
-
-		$T(S(R)) = \{(1 , 3) , (3 , 4) , (2 , 3) , (1 , 4) , (2 , 4) , (3 , 1) , (4 , 3) , (3 , 2)\}$
+			These cases will end up being equivalent to each other, except when T(R) fails to add an edge to R. That's when S(T(R)) becomes a subset of T(S(R)).
 	\end{enumerate}
 
+%============================================Problem 4======================================================
+	\noindent\textbf{\underline{Problem 4}}\\
+	How many reflexive binary relations are there on $S$ x $S$? How many symmetric relations? Explain. \\
+	$Bonus:$ How many equivalence relations are there on $S$ x $S$? Explain. \\
+
+	\underline{Reflexive Relations} \\
+
+	$S$ x $S$ = $\{ x \in S$ and $y \in S$ $|$ $(x, y) \in R\}$\\
+
+	The reflexive relations in $S$ x $S$ can be shown with a table: \\\\
+
+	\begin{tabular}{|c |c c c c c c c|} 
+ 		\hline
+ 		X & 0 & 1 & 2 & 3 &... & n - 1 & n\\ [0.5ex] 
+ 		\hline
+ 		0 & (0, 0) &  \cellcolor{red!25}(0, 1) &  \cellcolor{red!25}(0, 2) &  \cellcolor{red!25}(0, 3) &  \cellcolor{red!25}(0, ...) &  \cellcolor{red!25}(0, n - 1) &  \cellcolor{red!25}(0, n)\\ 
+ 		\hline
+		1 & \cellcolor{red!25}(1, 0) & (1, 1) &  \cellcolor{red!25}(1, 2) &  \cellcolor{red!25}(1, 3) &  \cellcolor{red!25}(1, ...) &  \cellcolor{red!25}(1, n - 1) &  \cellcolor{red!25}(1, n)\\ 
+ 		\hline
+		2 & \cellcolor{red!25}(2, 0) & \cellcolor{red!25}(2, 1) & (2, 2) &  \cellcolor{red!25}(2, 3) &  \cellcolor{red!25}(2, ...) &  \cellcolor{red!25}(2, n - 1) &  \cellcolor{red!25}(2, n)\\ 
+ 		\hline
+		3 & \cellcolor{red!25}(3, 0) & \cellcolor{red!25}(3, 1) & \cellcolor{red!25}(3, 2) & (3, 3) &  \cellcolor{red!25}(3, ...) &  \cellcolor{red!25}(3, n - 1) &  \cellcolor{red!25}(3, n)\\ 
+ 		\hline
+		... & \cellcolor{red!25}(..., 0) & \cellcolor{red!25}(..., 1) & \cellcolor{red!25}(..., 2) & \cellcolor{red!25}(..., 3) & (..., ...) &  \cellcolor{red!25}(..., n - 1) &  \cellcolor{red!25}(..., n)\\ 
+ 		\hline
+		n - 1 & \cellcolor{red!25}(n - 1, 0) & \cellcolor{red!25}(n - 1, 1) & \cellcolor{red!25}(n - 1, 2) & \cellcolor{red!25}(n - 1, 3) & \cellcolor{red!25}(n - 1, ...) & (n - 1, n - 1) &  \cellcolor{red!25}(n - 1, n)\\ 
+ 		\hline
+		n & \cellcolor{red!25}(n, 0) & \cellcolor{red!25}(n, 1) & \cellcolor{red!25}(n, 2) & \cellcolor{red!25}(n, 3) & \cellcolor{red!25}(n, ...) & \cellcolor{red!25}(n, n - 1) & (n, n)\\ 
+ 		\hline
+	\end{tabular}\\
+
+	The number of elements in all possible ordered pairs that can be reflexive is the length of $S$ x $S$
+
+	minus the length of the set containing the ordered pairs, (x, y), such that x = y because any set 
+
+	can be reflexive so long as the set with x = y is a subset. So the power set of the length of the 
+
+	set would be $2^{n^2 - n}$
+\newpage
+	\underline{Symmetric Relations} \\
+	
+	$S$ x $S$ = $\{ x \in S$ and $y \in S$ $|$ $(x, y) \in R\}$\\
+
+	The symmetric relations in $S$ x $S$ can be shown with a table: \\\\
+
+	\begin{tabular}{|c |c c c c c c c|} 
+ 		\hline
+ 		X & 0 & 1 & 2 & 3 &... & n - 1 & n\\ [0.5ex] 
+ 		\hline
+ 		0 & \cellcolor{blue!25}(0, 0) & (0, 1) & (0, 2) & (0, 3) & (0, ...) & (0, n - 1) & (0, n)\\ 
+ 		\hline
+		1 & \cellcolor{red!25}(1, 0) & \cellcolor{blue!25}(1, 1) & (1, 2) & (1, 3) & (1, ...) & (1, n - 1) & (1, n)\\ 
+ 		\hline
+		2 & \cellcolor{red!25}(2, 0) & \cellcolor{red!25}(2, 1) & \cellcolor{blue!25}(2, 2) & (2, 3) & (2, ...) & (2, n - 1) & (2, n)\\ 
+ 		\hline
+		3 & \cellcolor{red!25}(3, 0) & \cellcolor{red!25}(3, 1) & \cellcolor{red!25}(3, 2) & \cellcolor{blue!25}(3, 3) & (3, ...) & (3, n - 1) & (3, n)\\ 
+ 		\hline
+		... & \cellcolor{red!25}(..., 0) & \cellcolor{red!25}(..., 1) & \cellcolor{red!25}(..., 2) & \cellcolor{red!25}(..., 3) & \cellcolor{blue!25}(..., ...) & (..., n - 1) & (..., n)\\ 
+ 		\hline
+		n - 1 & \cellcolor{red!25}(n - 1, 0) & \cellcolor{red!25}(n - 1, 1) & \cellcolor{red!25}(n - 1, 2) & \cellcolor{red!25}(n - 1, 3) & \cellcolor{red!25}(n - 1, ...) & \cellcolor{blue!25}(n - 1, n - 1) & (n - 1, n)\\ 
+ 		\hline
+		n & \cellcolor{red!25}(n, 0) & \cellcolor{red!25}(n, 1) & \cellcolor{red!25}(n, 2) & \cellcolor{red!25}(n, 3) & \cellcolor{red!25}(n, ...) & \cellcolor{red!25}(n, n - 1) & \cellcolor{blue!25}(n, n)\\ 
+ 		\hline
+	\end{tabular}\\\\
+		
+	The number of elements in all possible ordered pairs that can be in a symmetric relation is the
+
+	 sum of the length of the set containing (x,y) where x = y, and the length of the set containing
+	
+	 an (y, x) for every (x, y) where x != y divided by 2. For every (x, y), there must be a (y, x), so
+
+	dividing by 2 would get rid of redundancies. \\
+
+	To calculate how many cells are in the highlighted area given a set $S$, you would use $\Sigma n$ 
+
+	which is the same as $\frac{n(n+1)}{2}$. The total number of symmetric relations would then be
+
+	the length of the power set of the set, which would be $2^{\frac{n(n+1)}{2}}$. \\
+
+***Collaborated with Sean Chu, Raymond Wu, and David Song
+
+	
+
+	 
 	
 \end{document}
 
