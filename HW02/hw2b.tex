@@ -31,16 +31,136 @@
 \noindent 
 Tony Li \\
 CSE150 \\
-HW02b \\\\
+HW02b \\
 
 %==============================================Problem 5====================================================
 \noindent\textbf{\underline{Problem 5}}\\
 	Show that each function $f : \mathbb{N} \rightarrow \mathbb{N}$ has the listed properties.
 	
 	\begin{enumerate}
-		\item $f(x) = 2x$ \,\,\,\,\,\,(one-to-one but not onto)
-		\item $f(x) = x+1$ \,\,\,\,\,\, (one-to-one but not onto)
-		\item $f(x) =$ if $x$ is odd then $x-1$ else $x+1$ \,\,\,\,\,\,\, (bijective)
+
+%-------------------------------------------------------------------------------1-----------------------------------------------------------------------------------------------------------
+		\item $f(x) = 2x$ \,\,\,\,\,\,(one-to-one but not onto) \\\\
+			\begin{minipage}{0.5\textwidth}
+				Injection: $\forall_{a,b} \in A$, $f(a) = f(b) \Rightarrow a = b$ \\
+				Take any two arbitrary x: $x_1, x_2$.
+				If $f(x_1) = f(x_2)$, then $x_1 = x_2$ is true if the function is one-to-one.\\
+				$f(x_1) = 2x_1$\\
+				$f(x_2) = 2x_2$\\
+				$2x_1 = 2x_2$\\
+				$x_1 = x_2$\\
+			\textbf{So $f(x)$ is one-to-one.}\\
+			\end{minipage}
+			\begin{minipage}{0.5\textwidth}
+				Onto: $\forall_{y} \in Y, \exists x \in X,$ $f(x) = y$
+				For this to be onto, every element in the set of $\mathbb{N}$ must have a corresponding element in the set of $\mathbb{N}$. \\\\
+				Let's take the number 7, from the set $\mathbb{N}$. \\\\
+				Since only f(3.5) = 7, and 3.5 is not in the set $\mathbb{N}$, \textbf{then it's not onto.}
+			\end{minipage}\\\\
+
+%-------------------------------------------------------------------------------2-----------------------------------------------------------------------------------------------------------
+		\item $f(x) = x+1$ \,\,\,\,\,\, (one-to-one but not onto)\\\\
+			\begin{minipage}{0.5\textwidth}
+				Injection: $\forall_{a,b} \in A$, $f(a) = f(b) \Rightarrow a = b$ \\
+				Take any two arbitrary x: $x_1, x_2$.
+				If $f(x_1) = f(x_2)$, then $x_1 = x_2$ is true if the function is one-to-one.\\
+				$f(x_1) = x_1+1$\\
+				$f(x_2) = x_2+1$\\
+				$x_1+1 = x_2+1$\\
+				$x_1 = x_2$\\
+			\textbf{So $f(x)$ is one-to-one.}\\
+			\end{minipage}
+			\begin{minipage}{0.5\textwidth}
+				Onto: $\forall_{y} \in Y, \exists x \in X,$ $f(x) = y$
+				For this to be onto, every element in the set of $\mathbb{N}$ must have a corresponding element in the set of $\mathbb{N}$. \\\\
+				Let's take the number 0, from the set $\mathbb{N}$. \\\\
+				Since only f(-1) = 0, and -1 is not in the set $\mathbb{N}$, \textbf{then it's not onto.}
+			\end{minipage}\\\\
+\newpage
+%-------------------------------------------------------------------------------3-----------------------------------------------------------------------------------------------------------	
+
+		\item $f(x) =$ if $x$ is odd then $x-1$ else $x+1$ \,\,\,\,\,\,\, (bijective) \\\\
+			\begin{minipage}{0.5\textwidth}
+				Injection: $\forall_{a,b} \in A$, $f(a) = f(b) \Rightarrow a = b$ \\
+				Take any two arbitrary x for the even case and any two arbitrary x for the odd case, where:\\
+					--$2x$ represents the $xth$ even number and \\
+					--$2x+1$ represents the $xth$ odd number: \\
+					$x_1, x_3$ for odds. \\
+					$x_2, x_4$ for evens.\\
+				If $f(2x_1+1) = f(2x_3+1)$, then $2x_1+1 = 2x_3+1$ is true if the function is one-to-one.\\
+				If $f(2x_2) = f(2x_4)$, then $2x_2 = 2x_4$ is true if the function is one-to-one.\\
+				
+			\textbf{So $f(x)$ is one-to-one.}\\
+			\end{minipage}
+			\begin{minipage}{0.5\textwidth}
+				 $f(x_1) = 2x_1+1-1$\\
+				$f(x_3) = 2x_3+1-1$\\
+				$2x_1+1 = 2x_3+1$\\
+				$2x_1+1 = 2x_3+1$\\\\
+
+				$f(x_2) = 2x_2+1$\\
+				$f(x_4) = 2x_4+1$\\
+				$2x_1+1 = 2x_3+1$\\
+				$2x_2 = 2x_4$\\\\
+			\end{minipage}\\\\
+
+			Onto: $\forall_{y} \in Y, \exists x \in X,$ $f(x) = y$
+				For this to be onto, every element in the set of $\mathbb{N}$ must have a corresponding element in the set of $\mathbb{N}$. \\\\
+				For this piecewise function to be onto, both pieces must also be onto. \\
+				For any arbitrary $x_1$, let $x_1$ represent the odd inputs, where $x_1 = 2n+1$ and $n \in \mathbb{N}$.\\
+				For any arbitrary $x_2$, let $x_2$ represent the even inputs where $x_2 = 2n$ and $n \in \mathbb{N}$.\\\\
+
+				$f(x_1) = x_1 - 1 = (2n+1)-1 = 2n$ \\
+				$f(x_2) = x_2 +1 = (2n) + 1 = 2n+1$ \\
+
+				This proves that for every odd input, there will be a corresponding even input and\\
+				for every even input, there will be a corresponding odd input. 
+	\end{enumerate}
+
+%==============================================Problem 6====================================================
+\noindent\textbf{\underline{Problem 6}}\\
+	Show that the product $(a+bi)(c+di)$ of two complex numbers can be evaluated using just three real-number multiplications. You may use a few extra additions. 
+
+	\begin{enumerate}
+		\item $(a+bi)(c+di)$
+		\item $ac + cbi + adi -bd$ [by foiling]
+		\item $ac - bd + i(cb+ad)$ [by grouping]
+		\item $ac - bd + i(cb+ad) + bc - bc  - ad + ad $ [adding zero]
+		\item $ac + bc - bd - ad + i(cb+ad) - bc  + ad$ [by grouping]
+		\item $c(a + b) - d(b + a) + i(cb+ad) - bc + ad$[by grouping]
+		\item$(a + b)(c + d) + i(cb+ad) - bc + ad$[by grouping]
+	\end{enumerate}
+
+%==============================================Problem 7====================================================
+\noindent\textbf{\underline{Problem 7}}\\
+	Given a function $f: A \rightarrow A$. An element $a \in A$ is called a \textit{fixed point of f} if $f(a) = a$. Find the set of fixed points for each of the following functions.
+
+	\begin{enumerate}
+		\item $f: A \rightarrow A$ where $f(x) = x$\\
+			\{$x$ $|$ $x \in \mathbb{R}$ \}
+			
+		\item $f: \mathbb{N} \rightarrow \mathbb{N}$ where $f(x) = x+1$\\
+			\{\}
+
+		\item $f: \mathbb{N}_{6} \rightarrow \mathbb{N}_6$ where $f(x) = 2x$ mod 6\\
+			\{0\}
+		\item $f: \mathbb{N}_{6} \rightarrow \mathbb{N}_6$ where $f(x) = 3x$ mod 6\\
+			\{0,3\}
 
 	\end{enumerate}
+
+%==============================================Problem 7====================================================
+\noindent\textbf{\underline{Problem 8}}\\
+	Let $f(x) = x^2$ and $g(x,y) = x + y$. Find the compositions that use the functions $f$ and $g$ for each of the following expressions.
+
+	\begin{enumerate}
+		\item $(x+y)^2$ = $f(g(x,y))$
+		\item $x^2 + y^2$ = $g(f(x),f(y))$
+		\item $(x+y+z)^2$ = $f(g(g(x,y),z))$
+		\item $x^2+y^2+z^2$ = $g(g(f(x), f(y)), f(z))$
+	\end{enumerate}
+\	\\\\
+****Collaborated with David Song, Raymond Wu, Sean Chu\\
+*****Special thanks to Zane for help with Problem 5
+
 \end{document}
