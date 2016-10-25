@@ -1,0 +1,200 @@
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+\usepackage{colortbl}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-1.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\textheight}{10.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+\noindent 
+Tony Li \\
+CSE150 \\
+HW03a \\\\
+
+%==============================================Problem 2====================================================
+\noindent\textbf{\underline{Problem 2}}\\
+	Show that every subset of $\mathbb{N}$ is countable. \\
+
+	\underline{Proof:} \\
+
+	Let $X$ = an arbitrary subset of $\mathbb{N}$. We show that $X$ is countable by showing a bijection between 
+
+	$X$ and  $\mathbb{N}$. 
+
+	Let $f: X \rightarrow \mathbb{N}$. Set $f(n)=n$. We show that $f$ is a bijection.
+
+	$f$ is one-to-one if $f(a) = f(b)$ for some a,b $\in X$, then $a = b$.
+
+	$f$ is onto. We need to show that for all $a \in \mathbb{N}$ there exists $b$ such that $f(b)=a$ and $b$ is in $X$. 
+
+	Let b = a. Then f(b) = f(a) = a. Since $a \in N$, $a \ge 1$, therefore, $b = a$ is in $X$.\\
+
+%==============================================Problem 3====================================================
+\noindent\textbf{\underline{Problem 3}}\\
+	Show that the set of all integers $\mathbb{Z}$ is countable. \\
+
+	\underline{Proof:} \\
+
+	Let $X$ = $-\mathbb{N}$
+
+	Let $Y$ = $\mathbb{N} \cup \{0\}$
+
+	and $X \cup Y = \mathbb{Z}$.\\
+
+	Let $f:X \rightarrow \{x|x \in \mathbb{N}, 2x \}$. Set $f(n)=-2n$. We show that $f$ is a bijection.
+
+	$f$ is one-to-one if $f(a) = f(b)$ for some a,b $\in X$, then $-2a = -2b$, implying that $a=b$.
+
+	$f$ is onto. We need to show that for all $a \in \{x|x \in \mathbb{N}, 2x \}$ there exists $b$ such that $f(b)=a$ and $b$ 
+
+	is in $X$. 
+
+	Let $b=-\frac{1}{2}a$. Then $f(b) = f(-\frac{1}{2}a) = -2(-\frac{1}{2}a) = a$. Since $a\in \{x|x \in \mathbb{N}, 2x \}$, $a$ is an even
+
+ 	number; therefore  $b=-\frac{1}{2}a$ is in $X$\\
+%-----------------------------------------------------------------------------------------
+
+	Let $f:Y \rightarrow \{x|x \in \mathbb{N}, 2x+1 \}$. Set $f(n)=2n+1$. We show that $f$ is a bijection.
+
+	$f$ is one-to-one if $f(a) = f(b)$ for some a,b $\in Y$, then $2a+1 = 2b+$1, implying that $a=b$.
+
+	$f$ is onto. We need to show that for all $a \in \{x|x \in \mathbb{N}, 2x+1 \}$ there exists $b$ such that $f(b)=a$ 
+
+	and $b$ is in $Y$. 
+
+	Let $b=\frac{a-1}{2}$. Then $f(b) = f(\frac{a-1}{2}) = 2(\frac{a-1}{2})+1 = a$. Since $a\in \{x|x \in \mathbb{N}, 2x+1 \}$, $a$ is an odd 
+
+	number; therefore  $b=\frac{a-1}{2}$ is in $Y$ \\
+
+	Since we proved that $X \rightarrow \{x|x \in \mathbb{N}, 2x \}$ and $Y \rightarrow \{x|x \in \mathbb{N}, 2x+1 \}$ are both bijective,
+
+	and $X \cup Y = \mathbb{Z}$ and $\{x|x \in \mathbb{N}, 2x \} \cup \{x|x \in \mathbb{N}, 2x+1 \} = \mathbb{N}$, then $\mathbb{Z} \rightarrow \mathbb{N}$ is bijective; therefore $\mathbb{Z}$ 
+
+is countable.
+
+\newpage
+%==============================================Problem 4====================================================
+\noindent\textbf{\underline{Problem 4}}\\
+	Show that the set of all finite subsets of a countable set is countable.\\
+
+	\underline{Proof:} \\
+
+	Let X = an arbitrary finite subset of $\mathbb{N}$. We show that $X$ is countable by showing a bijection 
+
+	between $X$ and $N$.
+
+	Let $f: X \rightarrow \mathbb{N}$. Set $f(n)=n_2$($n$ base 2). We show that $f$ is a bijection.
+
+	$f$ is one-to-one if $f(a) = f(b)$ for some a,b $\in X$, then $a_2 = b_2$, implying $a = b$.
+
+	$f$ is onto. We need to show that for all $a \in \mathbb{N}$ there exists $b$ such that $f(b)=a$ and $b$ is in $X$. 
+
+	Let $b = a_{10}$. Then $f(b) = f(a_{10}) = a_2$. Since $a \in N$, $a \ge 1$, therefore, $b = a_{10}$ is in $X$.\\
+
+%==============================================Problem 5====================================================
+\noindent\textbf{\underline{Problem 5}}\\
+	Show that the following statements are equivalent and true. \\
+	\begin{itemize}
+		\item $\mathbb{N}$ x $\mathbb{N}$ is countable
+
+			$N$ x $N$ can be represented as a set of coordinates on an $|\mathbb{N}|$ by $|\mathbb{N}|$ grid. Since each point can be enumerated, there is a bijection.
+
+		\item Union of countably many countable sets is countable.
+			
+			This can be represented by the lattice walk because each individual point can represent a countable subset and the union of the subsets is countable because each subset can be enumerated. 
+
+		\item $\mathbb{Q}$ is countable.
+
+			$\mathbb{Q}$ can be represented as $\frac{\mathbb{N}}{\mathbb{N}}$, which can also be represented as a set of coordinates on an $|\mathbb{N}|$ by $|\mathbb{N}|$ grid. Since each point can be enumerated, there is a bijection.
+	\end{itemize}
+
+	They are all equivalent because $N$ x $N$ has ordered pairs $(p,q)$ such that $\frac{p}{q}$ can be expressed as 
+
+	a rational number and vice versa. They both can be expressed as the union of countably many 
+
+	countable sets since each ordered pair is countable and the set of ordered pairs is also 
+
+	countable. 
+
+\newpage
+%==============================================Problem 6====================================================
+\noindent\textbf{\underline{Problem 6}}\\
+	A submarine is moving along the integer number line at a constant speed $s$ so that at each hour it is on an integer number. It started moving at time 0 at some position $b$. If $t$ is the (whole) number of hours elapsed since the submarine started moving, then its position is given by the equation $x=st+b$, where $x,s$ and $b$ are integers. \\\\
+You are working at Rocket Pizza delivery and you are to deliver pizza to the submarine. At each hour you can drop pizza on any number on the integer line. If the submarine is there at that time, then you have delivered the pizza and your job is done(you will be notified as soon as it happens). \\\\
+The problem is that you don't know where the submarine is, you cannot see it, you don't know where it started and how fast it is moving. The upside is that you have infinite number of pizzas. \\\\
+Show that you can deliver pizza in a finite amount of time. \\\\
+
+\underline{Proof:} \\
+
+$s$ and $b$ can represent the location of the submarine. Both can be any random integer, so it can be treated as any ordered pair in $\mathbb{Z}$ x $\mathbb{Z}$. If we randomly choose any ordered pair, we will eventually get the right ordered pair since the $\mathbb{Z}$ x $\mathbb{Z}$ is countable. It is finite once we hit the right ordered pair.
+\newpage
+%==============================================Problem 7====================================================
+\noindent\textbf{\underline{Problem 7}}\\
+
+	In the following table, F stands for Finite, I for Infinitely Countable, C for Countable, U for uncountable.
+ \begin{center}
+	\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c} \hline
+  Set & F & I & C & U & ? & $\star$ & Set & F & I & C & U & ?  \\ \hline
+
+$F \cup F$ & X & & & & & $\star$ & $C \cup F$ & & & X & & \\ \hline
+$F \cup I$ & & X & & & & $\star$ & $C \cup I$ & & & X & & \\ \hline
+$F \cup C$ & & & X & & & $\star$ & $C \cup C$ & & & X & & \\ \hline
+$F \cup U$ & & & & X & & $\star$ & $C \cup U$ & & & & X & \\ \hline
+$F \cap F$ & X & & & & & $\star$ & $C \cap F$ & X & & & & \\ \hline
+$F \cap I$ & X & & & & & $\star$ & $C \cap I$ & & X & & & \\ \hline
+$F \cap C$ & X & & & & & $\star$ & $C \cap C$ & & & X & & \\ \hline
+$F \cap U$ & X & & & & & $\star$ & $C \cap U$ & & & X & & \\ \hline
+$F - F$ & X & & & & & $\star$ & $C - F$ & & & X & & \\ \hline
+$F - I$ & X &  & & & & $\star$ & $C - I$ & & & X & & \\ \hline
+$F - C$ & X & & & & & $\star$ & $C - C$ & & & X & & \\ \hline
+$F - U$ & X & & & & & $\star$ & $C - U$ & & & X & & \\ \hline
+$F \times F$ & X & & & & & $\star$ & $C \times F$ & & & X & & \\ \hline
+$F \times I$ & & X & & & & $\star$ & $C \times I$ & & & X & & \\ \hline
+$F \times C$ & & & X & & & $\star$ & $C \times C$ & & & X & & \\ \hline
+$F \times U$ & & & & X & & $\star$ & $C \times U$ & & & & X & \\ \hline
+$I \cup F$ & & X & & & & $\star$ & $U \cup F$ & & & & X & \\ \hline
+$I \cup I$ & & X & & & & $\star$ & $U \cup I$ & & & & X & \\ \hline
+$I \cup C$ & & X & & & & $\star$ & $U \cup C$ & & & & X & \\ \hline
+$I \cup U$ & & & & X & & $\star$ & $U \cup U$ & & & & X & \\ \hline
+$I \cap F$ & X & & & & & $\star$ & $U \cap F$ & X & & & & \\ \hline
+$I \cap I$ & & & X & & & $\star$ & $U \cap I$ & & & X & & \\ \hline
+$I \cap C$ & & & X & & & $\star$ & $U \cap C$ & & & X & & \\ \hline
+$I \cap U$ & & & X & & & $\star$ & $U \cap U$ & & & & & X\\ \hline
+$I - F$ & & X & & & & $\star$ & $U - F$ & & & & X & \\ \hline
+$I - I$ & & & X & & & $\star$ & $U - I$ & & & & X & \\ \hline
+$I - C$ & & & X & & & $\star$ & $U - C$ & & & & X & \\ \hline
+$I - U$ & & & X & & & $\star$ & $U - U$ & & & & & X \\ \hline
+$I \times F$ & & X & & & & $\star$ & $U \times F$ & & & & X & \\ \hline
+$I \times I$ & & X & & & & $\star$ & $U \times I$ & & & & X & \\ \hline
+$I \times C$ & & X & & & & $\star$ & $U \times C$ & & & & X & \\ \hline
+$I \times U$ & & & & X & & $\star$ & $U \times U$ & & & & X & \\ \hline
+
+
+
+	\end{tabular}
+\end{center}
+
+***Collaborated with Raymond Wu, Sean Chu, David Song
+
+\end{document}
