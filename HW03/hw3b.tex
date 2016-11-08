@@ -1,0 +1,208 @@
+\documentclass[11pt]{article}
+% \usepackage{times}
+\usepackage{palatino}
+\usepackage{colortbl}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\renewcommand{\baselinestretch}{1.2} 
+\setlength{\topmargin}{-1.0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\textheight}{10.1in}
+
+\newlength{\pagewidth}
+\setlength{\pagewidth}{6.5in}
+\pagestyle{empty}
+
+\def\pp{\par\noindent}
+
+\special{papersize=8.5in,11in}
+
+
+\begin{document}
+\noindent 
+Tony Li \\
+CSE150 \\
+HW03b \\\\
+
+%==============================================Problem 8====================================================
+\noindent\textbf{\underline{Problem 8}}\\
+	
+	You have 10000 kilograms of pickles. Pickles are 99 percent water by volume. Water comprises 
+
+	100 percent of the mass of the pickle. Time goes by, and you observe that some water has 
+
+	evaporated. Now water comprises only 98 percent of the volume. What is the weight of the 
+
+	pickles now?\\
+
+	The weight of the pickles is $\frac{98}{99}$*10,000kg. If the volume of the pickles was V, then 
+
+	.99V represents the volume of the pickles and also weighs 10,000 kg. If .1V is gone, then .98V
+
+	is left, so $\frac{1}{99}$th of the volume of water disappeared, and thus, $\frac{1}{99}$th of 
+
+	the mass is also gone. 
+
+\	\\
+%==============================================Problem 10===================================================
+\noindent\textbf{\underline{Problem 10}}\\
+	
+	Prove the following using mathematical induction: 
+
+	\begin{enumerate}
+		\item $2n$ $\leq$ $2^n$
+
+			Show that $2n$ $\leq$ $2^n$ is true.
+
+			\underline{Proof:} Proof by induction on $n$\\
+
+			Let $P(n)$ be the predicate that $2n$ $\leq$ $2^n$\\
+
+			\textit{Base Case:} $n=1$, $2(1)$ $\leq$ $2^1$ is true, so P(1) holds. \\
+			\textit{Inductive Assumption:} Assume $P(n)$ holds for $n = k$, that is, that $2k$ $\leq$ $2^k$ for some $k$.\\
+			\textit{Inductive Step:} We want to establish P(k+1). If we substitute $k$ with $k+1$ we get: 
+
+			\[2(k+1)  \leq 2^{k+1}\]
+
+			This can be rewritten as:
+
+			\[2k+2 \leq 2^k * 2\]
+			\[2k+2 \leq 2^k + 2^k\]
+
+			Since the inductive assumption is made and the base case was true, we show that $2k$, which is less 
+
+			than or equal to $2^n$ added to $2(1)$ which is less than or equal to any $2^k$, we establish $P(k+1)$.\\
+
+			Therefore, $P(n)$ holds for all $n$ by the principle of mathematical induction, thus proving the theorem. 
+		\newpage
+		\item $1+3+5+$ ... $+(2n-1)=n^2$
+
+			Show that $1+3+5+$ ... $+(2n-1)=n^2$ is true.
+
+			\underline{Proof:} Proof by induction on $n$\\
+
+			Let $P(n)$ be the predicate that $1+3+5+$ ... $+(2n-1)=n^2$
+
+			\textit{Base Case:} $n=1$, $1 = 1^2$ is true, so P(1) holds.
+			\textit{Inductive Assumption:} Assume $P(n)$ holds for $n = k$, that is, that $1+3+5+$ ... $+(2k-1)=k^2$ for some $k$.\\
+			\textit{Inductive Step:} We want to establish P(k+1). If we add $2k+1$ to both sides, we get:
+
+			\[1+3+5+ ... +(2k-1)+(2k+1) = k^2+2k+1 = (k+1)^2\]
+			
+			Adding $2k+1$ comes from the inductive assumption and the rest follows by simplification.\\
+
+			Therefore, $P(n)$ holds for all $n$ by the principle of mathematical induction, thus proving the theorem.
+	
+
+		\item $1^2+2^2+3^2+...+n^2 = \frac{(n)(n+1)(2n+1)}{6}$
+
+			Show that $1^2+2^2+3^2+...+n^2 = \frac{(n)(n+1)(2n+1)}{6}$
+
+			\underline{Proof:} Proof by induction on $n$\\
+
+			Let $P(n)$ be the predicate that $1^2+2^2+3^2+...+n^2 = \frac{(n)(n+1)(2n+1)}{6}$
+
+			\textit{Base Case:} $n=1$, $1^2 = \frac{(1)(1+1)(2(1)+1)}{6}$ is true, so P(1) holds.\\
+			\textit{Inductive Assumption:} Assume $P(n)$ holds for $n = k$, that is, that 
+
+			$1^2+2^2+3^2+...+k^2 = \frac{(k)(k+1)(2k+1)}{6}$\\
+
+			\textit{Inductive Step:} We want to establish P(k+1). If we add $(k+1)^2$ to both sides, we get:
+
+			\[1^2+2^2+3^2+...+k^2+(k+1)^2 = \frac{(k)(k+1)(2k+1)}{6} + (k+1)^2\]
+			\[\frac{(k)(k+1)(2k+1)}{6} + k^2+2k+1\]
+			\[\frac{(k+1)(k+2)(2k+3)}{6}\]
+
+			Adding $(k+1)^2$ comes form the inductive assumption and the rest follows by simplification. \\
+	
+			Therefore, $P(n)$ holds for all $n$ by the principle of mathematical induction, thus proving the theorem.	
+	\end{enumerate}
+\newpage
+%==============================================Problem 11===================================================
+\noindent\textbf{\underline{Problem 11}}\\
+
+	You have an $n$ x $m$ bar of chocolate. Your goal is to separate all of the squares of chocolate. The 
+
+	way that you can break the chocolate is to take a single piece of chocolate (connected 
+
+	component of squares) and break it along one horizontal or vertical line. What is the minimum 
+
+	number of breaks necessary? Please prove your answer.
+
+	Show that it takes $nm-1$ breaks to separate an $n$ x $m$ bar of chocolate.\\
+
+	\underline{Proof:} Proof by strong induction on $N$\\
+
+	Let "$P(N)$ $= N - 1$ breaks to separate the chocolate bar" be the predicate, where $N = nm$.
+
+	\textit{Base Case:} $N=1$ P(1 x 1) = 0 is true. \\
+	
+	\textit{Inductive Assumption:} Assume that $\forall_k$ $\leq$ $N-1$, the number of breaks to
+
+	separate the chocolate bar $= k - 1$\\
+
+	\textit{Inductive Step:} We want to establish P(N). \\
+
+	Given $N$ pieces of chocolate, it can be broken into two pieces, $N - k$ and $k$. So that means that 
+
+	it takes $P(N-k) + P(k)+1$ breaks to completely separate the chocolate, or $N-k-1 + k-1 +1=N-1$ 
+
+	by the inductive assumption.\\
+
+	Therefore, $P(N)$ holds for all N by the principle of strong mathematical induction, thus proving the 
+
+	theorem.\\
+
+
+%==============================================Problem 12===================================================
+\noindent\textbf{\underline{Problem 12}}\\
+
+	You have an $n$ x $n$ checkerboard with an initial set of checkers placed on it. You are allowed to 
+
+	add additional checkers under the following conditions: You can place a checker on a square 
+
+	if two or more neighboring squares also have checkers on them. Neighboring cells are those
+
+	above, below, to the left and to the right, as shown in Figure 2. As we showed in class, there
+
+	are initial configurations of $n$ checkers that enable the entire board to be covered. Prove that 
+	
+	no configuration of $n-1$ checkers can let you cover the board.\\
+
+	\underline{Proof:} Proof by induction on $t$\\
+
+	Let $P(t)$ be the predicate, that is, that the perimeter formed by $n-1$ checkers will be less than 
+
+	$4n$, or the perimeter of the checkerboard at $t$ timesteps.\\
+
+	\textit{Base Case:} $t = 1$, 0 checkers cannot cover the 1 x 1 board. True. \\
+	
+	\textit{Inductive Assumption:} Assume $P(t)$ holds for t=k, that is, that the perimeter formed by $n-1$
+
+	checkers $\leq$ $4n$.
+
+	\newpage
+
+	\textit{Inductive Step:} We want to establish $P(k+1)$. \\
+
+	By placing $n-1$ checkers on the board, the perimeter formed will be less than or equal to 
+
+	$4(n-1)$. With every timestep, the only way the perimeter will increase is if the checker is
+
+	placed adjacent to only one checker or non-adjacent, which is rendered impossible by the
+
+	rules. \\
+
+	By the principle of mathematical induction, we prove that the checkerboard can't be covered
+
+	with $n-1$ checkers. 
+
+\end{document}
