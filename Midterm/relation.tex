@@ -1,0 +1,66 @@
+% !TEX root =  midterm.tex
+
+\newpage
+\addtocounter{problemctr}{1}
+
+{\bf
+Problem \theproblemctr.  (\therelation\xspace points)}
+\\
+
+Let's do some counting. Given a finite set $S$, where $\lvert S \rvert= n$, fill in the blanks below and give a {\bf one-sentence} justification for each.
+
+\vspace{.2in}
+
+\begin{enumerate}[label=(\arabic*),itemsep=.3in]
+\item
+Total number of binary relations on $S$: $2^{n^2}$ \\
+Number of binary relations = $|P(S x S)| = 2^{|SxS|} = 2^{|S|^2} = 2^{n^2}$
+\item
+Number of reflexive binary relations on $S$: $2^{n^2-n}$ \\\\
+Number of reflexive binary relations $P (SxS$ - set containing binary relations (a,b) where (a,b) $\in$ $SxS$ and $a=b)|$  \\
+\begin{tabular}{|c |c c c c c c c|} 
+ 		\hline
+ 		X & 0 & 1 & 2 & 3 &... & n - 1 & n\\ [0.5ex] 
+ 		\hline
+ 		0 & (0, 0) &  \cellcolor{red!25}(0, 1) &  \cellcolor{red!25}(0, 2) &  \cellcolor{red!25}(0, 3) &  \cellcolor{red!25}(0, ...) &  \cellcolor{red!25}(0, n - 1) &  \cellcolor{red!25}(0, n)\\ 
+ 		\hline
+		1 & \cellcolor{red!25}(1, 0) & (1, 1) &  \cellcolor{red!25}(1, 2) &  \cellcolor{red!25}(1, 3) &  \cellcolor{red!25}(1, ...) &  \cellcolor{red!25}(1, n - 1) &  \cellcolor{red!25}(1, n)\\ 
+ 		\hline
+		2 & \cellcolor{red!25}(2, 0) & \cellcolor{red!25}(2, 1) & (2, 2) &  \cellcolor{red!25}(2, 3) &  \cellcolor{red!25}(2, ...) &  \cellcolor{red!25}(2, n - 1) &  \cellcolor{red!25}(2, n)\\ 
+ 		\hline
+		3 & \cellcolor{red!25}(3, 0) & \cellcolor{red!25}(3, 1) & \cellcolor{red!25}(3, 2) & (3, 3) &  \cellcolor{red!25}(3, ...) &  \cellcolor{red!25}(3, n - 1) &  \cellcolor{red!25}(3, n)\\ 
+ 		\hline
+		... & \cellcolor{red!25}(..., 0) & \cellcolor{red!25}(..., 1) & \cellcolor{red!25}(..., 2) & \cellcolor{red!25}(..., 3) & (..., ...) &  \cellcolor{red!25}(..., n - 1) &  \cellcolor{red!25}(..., n)\\ 
+ 		\hline
+		n - 1 & \cellcolor{red!25}(n - 1, 0) & \cellcolor{red!25}(n - 1, 1) & \cellcolor{red!25}(n - 1, 2) & \cellcolor{red!25}(n - 1, 3) & \cellcolor{red!25}(n - 1, ...) & (n - 1, n - 1) &  \cellcolor{red!25}(n - 1, n)\\ 
+ 		\hline
+		n & \cellcolor{red!25}(n, 0) & \cellcolor{red!25}(n, 1) & \cellcolor{red!25}(n, 2) & \cellcolor{red!25}(n, 3) & \cellcolor{red!25}(n, ...) & \cellcolor{red!25}(n, n - 1) & (n, n)\\ 
+ 		\hline
+	\end{tabular}\\
+\item
+Number of symmetric binary relations on $S$: $2^{\frac{n(n+1)}{2}}$ \\\\
+Number of symmetric relations = the size of the power set of all binary relations $(a,b)$ in $SxS$ that have a $(b,a)$ in $SxS$
+
+\begin{tabular}{|c |c c c c c c c|} 
+ 		\hline
+ 		X & 0 & 1 & 2 & 3 &... & n - 1 & n\\ [0.5ex] 
+ 		\hline
+ 		0 & \cellcolor{blue!25}(0, 0) & (0, 1) & (0, 2) & (0, 3) & (0, ...) & (0, n - 1) & (0, n)\\ 
+ 		\hline
+		1 & \cellcolor{red!25}(1, 0) & \cellcolor{blue!25}(1, 1) & (1, 2) & (1, 3) & (1, ...) & (1, n - 1) & (1, n)\\ 
+ 		\hline
+		2 & \cellcolor{red!25}(2, 0) & \cellcolor{red!25}(2, 1) & \cellcolor{blue!25}(2, 2) & (2, 3) & (2, ...) & (2, n - 1) & (2, n)\\ 
+ 		\hline
+		3 & \cellcolor{red!25}(3, 0) & \cellcolor{red!25}(3, 1) & \cellcolor{red!25}(3, 2) & \cellcolor{blue!25}(3, 3) & (3, ...) & (3, n - 1) & (3, n)\\ 
+ 		\hline
+		... & \cellcolor{red!25}(..., 0) & \cellcolor{red!25}(..., 1) & \cellcolor{red!25}(..., 2) & \cellcolor{red!25}(..., 3) & \cellcolor{blue!25}(..., ...) & (..., n - 1) & (..., n)\\ 
+ 		\hline
+		n - 1 & \cellcolor{red!25}(n - 1, 0) & \cellcolor{red!25}(n - 1, 1) & \cellcolor{red!25}(n - 1, 2) & \cellcolor{red!25}(n - 1, 3) & \cellcolor{red!25}(n - 1, ...) & \cellcolor{blue!25}(n - 1, n - 1) & (n - 1, n)\\ 
+ 		\hline
+		n & \cellcolor{red!25}(n, 0) & \cellcolor{red!25}(n, 1) & \cellcolor{red!25}(n, 2) & \cellcolor{red!25}(n, 3) & \cellcolor{red!25}(n, ...) & \cellcolor{red!25}(n, n - 1) & \cellcolor{blue!25}(n, n)\\ 
+ 		\hline
+	\end{tabular}\\\\
+
+\end{enumerate}
+
+\newpage
